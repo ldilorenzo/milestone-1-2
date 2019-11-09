@@ -1,3 +1,12 @@
+
+@media screen and (min-width: 600px){
+
+    body{
+        background-color: darkslategray;
+    }
+
+}
+
 #colorformat{
     position: absolute;
     top:120px;
@@ -12,6 +21,17 @@ h1:hover{
         font-size:50px;
         transition: 1s font-size linear;
         transition-timing-function: ease-in-out;
+    }
+
+    #img{
+        width: 100px;
+        transition: width 2s;
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+    #img:hover{
+        transform: scale(2);
     }
 
   td {
