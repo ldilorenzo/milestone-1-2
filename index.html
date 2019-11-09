@@ -18,7 +18,10 @@ var red;
 var green;
 function changeColor(){
 
+    var img = document.getElementById("imageButton");
     if (clickcount<1){
+
+    img.style.visibility = "hidden"; //hide button while things happen
     blue = 255;
     red = 0;
     green = 0;
@@ -36,6 +39,9 @@ function changeColor(){
     document.getElementById("loading").innerHTML="Loading...("+i+")"; //display loading and numbers
 
     if (red>254){//if red gets too high, stop on latest colour.
+        
+        img.style.visibility = "visible";
+
         document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
         document.getElementById("loading").innerHTML="";
      
@@ -49,7 +55,8 @@ function changeColor(){
     }
 
 else if (clickcount<2){
-    
+
+    img.style.visibility = "hidden"; //hide button
 //reset colour numbers
     red = 255;
     green = 0;
@@ -72,6 +79,7 @@ else if (clickcount<2){
 
     if (red<0){//if blue gets too high, stop on latest colour.
 
+    img.style.visibility = "visible";
     document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
 
     document.getElementById("loading").innerHTML="";
@@ -87,7 +95,7 @@ else if (clickcount<2){
 
 
 else if (clickcount=3){
-    
+    img.style.visibility = "hidden"; //hide button
     //reset colour numbers
         red = 0;
         green = 255;
@@ -106,7 +114,7 @@ else if (clickcount=3){
         document.getElementById("loading").innerHTML="Loading...("+j+")"; //display loading and numbers
     
         if (blue<0){//if blue gets too low, stop on latest colour.
-    
+        img.style.visibility = "visible";
         document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
     
         document.getElementById("loading").innerHTML="";
@@ -179,7 +187,8 @@ function doStuff(){ //function called when button is pressed.
 
 <div id = colorformat>
 <!--button image:-->
-<img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:50px;">
+<img src="colour_img_1.gif" id="imageButton" onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:50px;">
+<div id="loading" style="color:rgb(150, 150, 224);"></div>
 </div>
 <center><h1>Let's Fill in a Form!</h1>  
 <br>
@@ -199,7 +208,6 @@ Does this form need to do anything? <input type="radio" name="answer" value="yes
 </form>
 
 <div id="display" style="color:blue;"></div>
-<div id="loading" style="color:rgb(150, 150, 224);"></div>
 </center>
 </div>
 </div>

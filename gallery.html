@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<meta name="description" content="HTML Form Example"> <!--description of webpage-->
+<meta name="keywords" content="HTML,CSS,JavaScript,Form,Elements,Example"> <!--keywords-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--control page dimensions and scaling-->
+
+<script>
+var clickcount = 0;
+var blue;
+var red;
+var green;
+function changeColor(){
+
+    if (clickcount<1){
+    blue = 255;
+    red = 0;
+    green = 0;
+
+    for (let i=1; i<101; i++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
+
+    setTimeout( function timer(){
+    
+   document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+
+    red = red + 4;
+    blue = blue - 4;
+    green = green - 4;
+
+    document.getElementById("loading").innerHTML="Loading...("+i+")"; //display loading and numbers
+
+    if (red>254){//if red gets too high, stop on latest colour.
+        document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+        document.getElementById("loading").innerHTML="";
+     
+    }
+
+    }, i*100 );
+
+    }
+    clickcount++; //click count is 1
+    
+    }
+
+else if (clickcount<2){
+    
+//reset colour numbers
+    red = 255;
+    green = 0;
+    blue =0;
+//restart for statment 
+    for (let j=1; j<101; j++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
+    
+    setTimeout( function timer(){
+        //display numbers
+    document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+    red = red - 4;
+    blue = blue + 4;
+    green = green + 4;
+
+    //document.getElementById("loading").innerHTML="Loading...("+j+")";
+
+    if (j>30){ //fix this -- changed because loading bar flickers up until around count 30. WHY??
+    document.getElementById("loading").innerHTML="Loading...("+j+")";
+   }
+
+    if (red<0){//if blue gets too high, stop on latest colour.
+
+    document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+
+    document.getElementById("loading").innerHTML="";
+       // break; //reset click count to 0
+    }
+    
+    }, j*100 );
+    
+
+    }
+    clickcount++; //reset click count to 0
+    }
+
+
+else if (clickcount=3){
+    
+    //reset colour numbers
+        red = 0;
+        green = 255;
+        blue =255;
+    //restart for statment 
+        for (let j=1; j<101; j++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
+    
+        setTimeout( function timer(){
+            //display numbers
+        document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+        
+        red = red + 4;
+        blue = blue - 4;
+        green = green - 4;
+
+        document.getElementById("loading").innerHTML="Loading...("+j+")"; //display loading and numbers
+    
+        if (blue<0){//if blue gets too low, stop on latest colour.
+    
+        document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+    
+        document.getElementById("loading").innerHTML="";
+           // break; //reset click count to 0
+        }
+        
+        }, j*100 );      
+    
+        }
+        clickcount = 0; //reset click count to 0
+        }
+    //document.getElementById("display").innerHTML=clickcount; //display click count
+}
+</script>
+<title>About</title>
+
+</head>
+<body>
+        <center>
+                <header>
+                    <table>
+                        <tr>
+                            <td><a href="index.html">Home</a></td>
+                            <td><a href="about.html">About</a></td>
+                            <td><a href="gallery.html">Gallery</a>></td>
+                            <td><a href="contactus.html">Contact Us</a></td>
+                        </tr>
+                    </table>
+                </header>
+                </center>
+
+<div id="outline">
+<div id="bgstyle">
+
+<div id = colorformat>
+<!--button image:-->
+<img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:50px;">
+</div>
+<center><h1>Gallery</h1>  
+<br>
+Here we have some exciting images of something I haven't decided yet.
+<div id="display" style="color:blue;"></div>
+<div id="loading" style="color:rgb(150, 150, 224);"></div>
+</center>
+</div>
+</div>
+</body>
+</html>
