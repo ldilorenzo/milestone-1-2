@@ -26,6 +26,7 @@ h1:hover{
    a:hover{
        font-size: 24px;
        transition: .5s font-size linear;
+       transition-timing-function: ease-in-out;
    }
 
 
