@@ -3,41 +3,14 @@
 <head>
     <!--Bootstrap-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <meta name="description" content="HTML Form Example"> <!--description of webpage-->
 <meta name="keywords" content="HTML,CSS,JavaScript,Form,Elements,Example"> <!--keywords-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--control page dimensions and scaling-->
-<style>
-    #colorformat{
-    position: absolute;
-    top: 50px;
-    left: 105px;
-    }
-    #outline {
-        border-radius: 25px;
-        border: 5px solid rgb(36, 36, 253);
-        margin-right: 20px;
-        margin-left: 20px;
-        margin-top: 20px;
-        margin-bottom: 10px;  
-    }
 
-	#bgstyle {
-    border-radius: 25px;
-	background-color:rgb(230, 230, 230);
-	padding:20px;
-	margin-right: 50px;
-	margin-left: 50px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-	}
-    body {
-    font-family:monospace;
-    background-color:black;
-    }
-</style>
 <script>
 var clickcount = 0;
 var blue;
@@ -49,55 +22,56 @@ function changeColor(){
     blue = 255;
     red = 0;
     green = 0;
-    document.getElementById("display").innerHTML="clickcount ="+clickcount;
 
     for (let i=1; i<101; i++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
 
     setTimeout( function timer(){
     
-    document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+   document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+
     red = red + 4;
     blue = blue - 4;
     green = green - 4;
+
     document.getElementById("loading").innerHTML="Loading...("+i+")"; //display loading and numbers
 
     if (red>254){//if red gets too high, stop on latest colour.
         document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
         document.getElementById("loading").innerHTML="";
-      //  document.getElementById("colorButton").style.visibility = "hidden"; //hide button
-     //document.getElementById("display").innerHTML = "clickcount= "+ clickcount +"red= "+red+"green="+green+"blue="+blue;
+     
     }
-   
-    }, i*100 );
-    }
-   // document.getElementById("display").innerHTML = "clickcount= "+ clickcount +"red= "+red+"green="+green+"blue="+blue;
 
+    }, i*100 );
+
+    }
     clickcount++; //click count is 1
     
     }
 
-else if (clickcount=1){
+else if (clickcount<2){
     
 //reset colour numbers
     red = 255;
-    green = 255;
+    green = 0;
     blue =0;
-   // document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
-    document.getElementById("display").innerHTML="count ="+clickcount+"red="+red+"blue="+blue+"green="+green;
 //restart for statment 
     for (let j=1; j<101; j++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
-
+    
     setTimeout( function timer(){
         //display numbers
-    document.getElementById("display").innerHTML="count ="+clickcount+"red="+red+"blue="+blue+"green="+green;
-
     document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
     red = red - 4;
     blue = blue + 4;
     green = green + 4;
-    document.getElementById("loading").innerHTML="Loading...("+i+")"; //display loading and numbers
 
-    if (blue>254){//if blue gets too high, stop on latest colour.
+    document.getElementById("loading").innerHTML="Loading...("+j+")";
+
+    //if (j>30){ //fix this -- changed because loading bar flickers up until around count 30. WHY??
+   // document.getElementById("loading").innerHTML="Loading...("+j+")";
+    //display loading and numbers
+  // }
+
+    if (red<0){//if blue gets too high, stop on latest colour.
 
     document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
 
@@ -105,12 +79,47 @@ else if (clickcount=1){
        // break; //reset click count to 0
     }
     
-    }, i*100 );
+    }, j*100 );
     
 
     }
-    clickcount = 0; //reset click count to 0
+    clickcount++; //reset click count to 0
     }
+
+
+else if (clickcount=3){
+    
+    //reset colour numbers
+        red = 0;
+        green = 255;
+        blue =255;
+    //restart for statment 
+        for (let j=1; j<101; j++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
+    
+        setTimeout( function timer(){
+            //display numbers
+        document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+        
+        red = red + 4;
+        blue = blue - 4;
+        green = green - 4;
+
+        document.getElementById("loading").innerHTML="Loading...("+j+")"; //display loading and numbers
+    
+        if (blue<0){//if blue gets too low, stop on latest colour.
+    
+        document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
+    
+        document.getElementById("loading").innerHTML="";
+           // break; //reset click count to 0
+        }
+        
+        }, j*100 );      
+    
+        }
+        clickcount = 0; //reset click count to 0
+        }
+    //document.getElementById("display").innerHTML=clickcount; //display click count
 }
 function doStuff(){ //function called when button is pressed.
 	
@@ -138,12 +147,41 @@ function doStuff(){ //function called when button is pressed.
 }
 </script>
 <title>Leah Dilorenzo</title>
+
 </head>
 <body>
+<!--navigation bar wont work--
+<header>
+    <nav>
+         <li>
+            <ul><a href=#>Home</a></ul>
+            <ul><a href=#>About</a></ul>
+            <ul><a href=#>Images</a></ul>
+            <ul><a href=#>Contact Us</a></ul>
+        </li>   
+    </nav>
+</header>
+-->
+<center>
+<header>
+    <table>
+        <tr>
+            <td><a href=#>Home</a></td>
+            <td><a href="about.html">About</a></td>
+            <td><a href=#>Gallery</a>></td>
+            <td><a href=#>Contact Us</a></td>
+        </tr>
+    </table>
+</header>
+</center>
+
 <div id="outline">
 <div id="bgstyle">
-<div id = colorformat><button type="button" onclick="changeColor()" class="btn btn-dark" id="colorButton">change color!</button>
-<div id="loading" style="color:rgb(150, 150, 224);"></div></div>
+
+<div id = colorformat>
+<!--button image:-->
+<img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:50px;">
+</div>
 <center><h1>Let's Fill in a Form!</h1>  
 <br>
 <form>
@@ -162,6 +200,7 @@ Does this form need to do anything? <input type="radio" name="answer" value="yes
 </form>
 
 <div id="display" style="color:blue;"></div>
+<div id="loading" style="color:rgb(150, 150, 224);"></div>
 </center>
 </div>
 </div>
