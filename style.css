@@ -17,6 +17,19 @@ h1:hover{
    td {
        padding: 20px;
    }
+<<<<<<< HEAD
+=======
+   
+   a {
+       font-size:12px;
+       transition: .5s font-size linear;
+   }
+
+   a:hover {
+       font-size: 24px;
+       transition-timing-function: ease-in-out;
+   }
+>>>>>>> master
 
 
 #outline {
@@ -40,4 +53,8 @@ h1:hover{
 body {
     font-family:monospace;
     background-color:black;
+<<<<<<< HEAD
     }
+=======
+    }
+>>>>>>> master
