@@ -119,7 +119,16 @@ else if (clickcount=3){
         clickcount = 0; //reset click count to 0
         }
     //document.getElementById("display").innerHTML=clickcount; //display click count
+
+    
 }
+
+function sendInfo(){ //method called when form is "submit"
+        document.getElementById("display").innerHTML= "Your message was not sent."
+        document.getElementById("name").innerHTML="";
+        document.getElementById("email").innerHTML="";
+        document.getElementById("message").innerHTML="";
+    }
 </script>
 <title>Contact Us</title>
 
@@ -129,6 +138,7 @@ else if (clickcount=3){
                 <header>
                     <table>
                         <tr>
+                            <td></td>
                             <td><a href="index.html">Home</a></td>
                             <td><a href="about.html">About</a></td>
                             <td><a href="gallery.html">Gallery</a>></td>
@@ -141,14 +151,22 @@ else if (clickcount=3){
 <div id="outline">
 <div id="bgstyle">
 
-<div id = colorformat>
-<!--button image:-->
-<img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:50px;">
-</div>
+
 <center><h1>Contact Us</h1>  
-<br>
-Here's where you can contact us. If I wanted you to.<br>
-Maybe I'll put a contact form here or something?<br>
+    <img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:30px;">
+<br><br>
+Here's where you can contact us. Lucky you.<br>
+<br><br>
+<form>
+    Your name:<br><input type=text class="form-control" id="name"><br>
+    <br>
+    Your email:<br><input type=text class="form-control" id="email"><br>
+    <br>
+    Your message:<br><input type=textarea class="md-textarea form-control" rows="10" cols="5" id="message">
+    <br>
+    <br>
+    <button id="submit" onclick="sendInfo()">Send this nowhere</button>
+</form>
 <div id="display" style="color:blue;"></div>
 <div id="loading" style="color:rgb(150, 150, 224);"></div>
 </center>
