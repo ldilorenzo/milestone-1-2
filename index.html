@@ -64,12 +64,11 @@ else if (clickcount<2){
     blue = blue + 4;
     green = green + 4;
 
-    document.getElementById("loading").innerHTML="Loading...("+j+")";
+    //document.getElementById("loading").innerHTML="Loading...("+j+")";
 
-    //if (j>30){ //fix this -- changed because loading bar flickers up until around count 30. WHY??
-   // document.getElementById("loading").innerHTML="Loading...("+j+")";
-    //display loading and numbers
-  // }
+    if (j>30){ //fix this -- changed because loading bar flickers up until around count 30. WHY??
+    document.getElementById("loading").innerHTML="Loading...("+j+")";
+   }
 
     if (red<0){//if blue gets too high, stop on latest colour.
 
@@ -168,8 +167,8 @@ function doStuff(){ //function called when button is pressed.
         <tr>
             <td><a href=#>Home</a></td>
             <td><a href="about.html">About</a></td>
-            <td><a href=#>Gallery</a>></td>
-            <td><a href=#>Contact Us</a></td>
+            <td><a href="gallery.html">Gallery</a>></td>
+            <td><a href="contactus.html">Contact Us</a></td>
         </tr>
     </table>
 </header>
