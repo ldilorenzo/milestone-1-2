@@ -1,6 +1,6 @@
 #colorformat{
     position: absolute;
-    top:90px;
+    top:120px;
     left: 105px;
     }
 
@@ -14,7 +14,9 @@ h1:hover{
         transition-timing-function: ease-in-out;
     }
 
-   td
+   td {
+       padding: 20px;
+   }
 
 
 #outline {
