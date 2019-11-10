@@ -23,15 +23,15 @@ h1:hover{
         transition-timing-function: ease-in-out;
     }
 
-    #img{
-        width: 100px;
+#img{
+        width: 60%;
         transition: width 2s;
         transition: transform .2s; /* Animation */
         margin: 0 auto;
     }
 
     #img:hover{
-        transform: scale(2);
+        transform: scale(2.5);
     }
 
   td {
