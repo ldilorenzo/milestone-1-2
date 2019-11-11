@@ -21,7 +21,6 @@ function changeColor(){
     var img = document.getElementById("imageButton");
     if (clickcount<1){
 
-    img.style.visibility = "hidden"; //hide button while things happen
     blue = 255;
     red = 0;
     green = 0;
@@ -39,8 +38,6 @@ function changeColor(){
     document.getElementById("loading").innerHTML="Loading...("+i+")"; //display loading and numbers
 
     if (red>254){//if red gets too high, stop on latest colour.
-        
-        img.style.visibility = "visible";
 
         document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
         document.getElementById("loading").innerHTML="";
@@ -56,12 +53,10 @@ function changeColor(){
 
 else if (clickcount<2){
 
-    img.style.visibility = "hidden"; //hide button
-//reset colour numbers
     red = 255;
     green = 0;
     blue =0;
-//restart for statment 
+
     for (let j=1; j<101; j++) { //for statement + timer credit of https://stackoverflow.com/users/1833379/saket-mehta
     
     setTimeout( function timer(){
@@ -71,19 +66,13 @@ else if (clickcount<2){
     blue = blue + 4;
     green = green + 4;
 
-    //document.getElementById("loading").innerHTML="Loading...("+j+")";
-
-    if (j>30){ //fix this -- changed because loading bar flickers up until around count 30. WHY??
     document.getElementById("loading").innerHTML="Loading...("+j+")";
-   }
 
     if (red<0){//if blue gets too high, stop on latest colour.
 
-    img.style.visibility = "visible";
     document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
 
     document.getElementById("loading").innerHTML="";
-       // break; //reset click count to 0
     }
     
     }, j*100 );
@@ -114,11 +103,9 @@ else if (clickcount=3){
         document.getElementById("loading").innerHTML="Loading...("+j+")"; //display loading and numbers
     
         if (blue<0){//if blue gets too low, stop on latest colour.
-        img.style.visibility = "visible";
         document.getElementById("outline").style.border = "5px solid rgb("+red+","+green+", "+blue+")";
     
         document.getElementById("loading").innerHTML="";
-           // break; //reset click count to 0
         }
         
         }, j*100 );      
@@ -185,11 +172,12 @@ function doStuff(){ //function called when button is pressed.
 <div id="outline">
 <div id="bgstyle">
 
-<div id = colorformat>
+
+<center><h1>Let's Fill in a Form!</h1>
+<br>
 <img src="colour_img_1.gif" id="imageButton" onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:50px;">
 <div id="loading" style="color:rgb(150, 150, 224);"></div>
-</div>
-<center><h1>Let's Fill in a Form!</h1>  
+<br>
 <form>
 Please name an animal: <br><input type="text"id="text" size="30" required>
 <br><br>

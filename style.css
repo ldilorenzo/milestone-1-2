@@ -1,17 +1,12 @@
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 480px){
 
     body{
-        background-color: darkslategray;
+        background-color: rgb(17, 0, 255);
     }
 
 }
 
-#colorformat{
-    position: absolute;
-    top:120px;
-    left: 105px;
-    }
 
 h1 {
         font-size:40px;
