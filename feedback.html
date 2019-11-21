@@ -124,10 +124,21 @@ else if (clickcount=3){
 }
 
 function sendInfo(){ //method called when form is "submit"
-        document.getElementById("display").innerHTML= "Your message was not sent."
+
+    var name = document.getElementById("name").value;
+    var message = document.getElementById("message").value;
+
+    if (name.length < 1 || message.length < 1){ //check if fields are filled in
+
+        document.getElementById("display").innerHTML="Please fill in all fields";
+    }
+    else{
+        //write name and message to database i guess.
+        document.getElementById("display").innerHTML="Message saved. Thank you."
         document.getElementById("name").innerHTML="";
-        document.getElementById("email").innerHTML="";
         document.getElementById("message").innerHTML="";
+    }
+       
     }
 </script>
 <title>Contact Us</title>
@@ -141,7 +152,7 @@ function sendInfo(){ //method called when form is "submit"
                             <td><a href="index.html">Home</a></td>
                             <td><a href="about.html">About</a></td>
                             <td><a href="gallery.html">Gallery</a>></td>
-                            <td><a href="contactus.html">Contact Us</a></td>
+                            <td><a href="feedback.html">Comments</a></td>
                         </tr>
                     </table>
                 </header>
@@ -151,24 +162,21 @@ function sendInfo(){ //method called when form is "submit"
 <div id="bgstyle">
 
 
-<center><h1>Contact Us</h1>  
+<center><h1>Comments</h1>  
     <img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:30px;">
 <br><br>
-Here's where you can contact us. Lucky you.<br>
+Please leave comments and feedback here.<br>
 <br><br>
-<form>
+<form action=>
     <div class="form-group">
     Your name:<br>
-    <input type=text class="form-control" id="name"><br>
-    <br>
-    Your email:<br>
-    <input type=text class="form-control" id="email"><br>
+    <input type=text class="form-control" id="name" placeholder="Queen Elizabeth" required><br>
     <br>
     Your message:<br>
-    <textarea class="form-control"  rows="3" id="message" style="height:100%;" placeholder="I love your site"></textarea>
+    <textarea class="form-control"  rows="3" id="message" style="height:100%;" maxlength="350" placeholder="I love your site" required></textarea>
     <br>
     <br>
-    <button type="button" class="btn btn-light" id="submit" onclick="sendInfo()">Send this nowhere</button>
+    <button type="button" class="btn btn-light" id="submit" onclick="sendInfo()">Send</button>
 </div>
 </form>
 <div id="display" style="color:blue;"></div>
