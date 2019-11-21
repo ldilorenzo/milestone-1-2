@@ -114,6 +114,7 @@ else if (clickcount=3){
         clickcount = 0; //reset click count to 0
         }
     //document.getElementById("display").innerHTML=clickcount; //display click count
+
 }
 function doStuff(){ //function called when button is pressed.
 	
@@ -177,18 +178,20 @@ function doStuff(){ //function called when button is pressed.
 <div id="loading" style="color:rgb(150, 150, 224);"></div>
 <br>
 <form>
-Please name an animal: <br><input type="text"id="text" size="30" required>
-<br><br>
-Please enter a number: <input type="number" id="number" min="0" max="100" required>
-<br><br>
-Please choose a colour: <input type="radio" name="color" value="red" checked>Red
-<input type="radio" name="color" value="green">Green
-<input type="radio" name="color" value="blue">Blue
-<br><br>
-Does this form need to do anything? <input type="radio" name="answer" value="yes" checked>Yes
-<input type="radio" name="answer" value="no">No
-<br><br><br>
-<input type="button" class="btn btn-default" value="Submit" onclick="doStuff()">
+
+    Please name an animal:<br>
+    <input type="text" class="form-control" id="text" size="30" required>
+    <br>
+    Please enter a number: <input type="number" id="number" min="0" max="100" required>
+    <br><br>
+    Please choose a colour: <input type="radio" name="color" value="red" checked>Red
+    <input type="radio" name="color" value="green">Green
+    <input type="radio" name="color" value="blue">Blue
+    <br><br>
+    Does this form need to do anything? <input type="radio" name="answer" value="yes" checked>Yes
+    <input type="radio" name="answer" value="no">No
+    <br><br><br>
+    <input type="button" class="btn btn-default" value="Submit" onclick="doStuff()">
 </form>
 
 <div id="display" style="color:blue;"></div>
