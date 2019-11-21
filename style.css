@@ -72,7 +72,9 @@
     }
     body {
         font-family:monospace;
-        background-color:black;
+        background-image: url('eye_bg.jpg');
+       /* background-color:black;*/
+       
     }
 
     @media screen and (max-width: 600px){ /*Adapt to any screen size under 600px wide*/

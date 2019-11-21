@@ -123,7 +123,9 @@ else if (clickcount=3){
     
 }
 
-function sendInfo(){ //method called when form is "submit"
+function sendInfo(){ 
+    
+    //method called when form is "submit"
 
     var name = document.getElementById("name").value;
     var message = document.getElementById("message").value;
@@ -133,10 +135,10 @@ function sendInfo(){ //method called when form is "submit"
         document.getElementById("display").innerHTML="Please fill in all fields";
     }
     else{
-        //write name and message to database i guess.
+        //write name and message to database i guess. 
         document.getElementById("display").innerHTML="Message saved. Thank you."
-        document.getElementById("name").innerHTML="";
-        document.getElementById("message").innerHTML="";
+        document.getElementById("name").value = "";
+        document.getElementById("message").value="";
     }
        
     }
@@ -167,16 +169,16 @@ function sendInfo(){ //method called when form is "submit"
 <br><br>
 Please leave comments and feedback here.<br>
 <br><br>
-<form action=>
+<form>
     <div class="form-group">
     Your name:<br>
-    <input type=text class="form-control" id="name" placeholder="Queen Elizabeth" required><br>
+    <input type=text class="form-control" id="name"  placeholder="Queen Elizabeth" required><br>
     <br>
     Your message:<br>
-    <textarea class="form-control"  rows="3" id="message" style="height:100%;" maxlength="350" placeholder="I love your site" required></textarea>
+    <textarea class="form-control"  rows="3" id="message"  style="height:100%;" maxlength="350" placeholder="I love your site" required></textarea>
     <br>
     <br>
-    <button type="button" class="btn btn-light" id="submit" onclick="sendInfo()">Send</button>
+    <button type="button" class="btn btn-default" onclick="sendInfo()">Submit</button>
 </div>
 </form>
 <div id="display" style="color:blue;"></div>
@@ -184,5 +186,6 @@ Please leave comments and feedback here.<br>
 </center>
 </div>
 </div>
+
 </body>
 </html>
