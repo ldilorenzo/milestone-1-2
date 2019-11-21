@@ -158,14 +158,19 @@ function sendInfo(){ //method called when form is "submit"
 Here's where you can contact us. Lucky you.<br>
 <br><br>
 <form>
-    Your name:<br><input type=text class="form-control" id="name"><br>
+    <div class="form-group">
+    Your name:<br>
+    <input type=text class="form-control" id="name"><br>
     <br>
-    Your email:<br><input type=text class="form-control" id="email"><br>
+    Your email:<br>
+    <input type=text class="form-control" id="email"><br>
     <br>
-    Your message:<br><input type=textarea class="md-textarea form-control" rows="10" cols="5" id="message">
+    Your message:<br>
+    <textarea class="form-control"  rows="3" id="message" style="height:100%;" placeholder="I love your site"></textarea>
     <br>
     <br>
-    <button id="submit" onclick="sendInfo()">Send this nowhere</button>
+    <button type="button" class="btn btn-light" id="submit" onclick="sendInfo()">Send this nowhere</button>
+</div>
 </form>
 <div id="display" style="color:blue;"></div>
 <div id="loading" style="color:rgb(150, 150, 224);"></div>
