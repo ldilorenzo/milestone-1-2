@@ -41,7 +41,7 @@
     }
    
     a {
-       font-size:12px;
+       font-size: 12px;
        transition: .5s font-size linear;
    }
 
@@ -73,6 +73,8 @@
     body {
         font-family:monospace;
         background-image: url('eye_bg.jpg');
+        background-repeat: no-repeat;
+        background-size: auto;
        /* background-color:black;*/
        
     }

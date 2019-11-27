@@ -120,6 +120,25 @@ else if (clickcount=3){
         }
     //document.getElementById("display").innerHTML=clickcount; //display click count
 }
+
+function clickGoat(){
+   
+    document.getElementById("gertImage").src="gert3.jpg";
+    document.body.style.backgroundImage = "url('goats2.gif')";
+    document.getElementById("bgstyle").style.opacity = "0.6";
+
+    var button = document. createElement("button");
+    button. innerHTML = "please stop";
+    document.getElementById("display").appendChild(button);
+
+    button.addEventListener("click", function(){
+        document.getElementById("gertImage").src="gert.gif";
+        document.body.style.backgroundImage = "url('eye_bg.jpg')";    
+        button.style.visibility = "hidden";
+        document.getElementById("bgstyle").style.opacity = "1";
+    });
+
+}
 </script>
 <title>About</title>
 
@@ -142,10 +161,11 @@ else if (clickcount=3){
 <div id="bgstyle">
 
 <center><h1>About</h1>  
-    <img src="colour_img_1.gif"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:30px;">
+    <img src="colour_img_1.gif" width="100%" size="auto"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:30px;">
 <br><br>
 We are one person making cool html stuffs and things.<br>
-Please judge my code. 
+Please judge my code.<br><br>
+<img src="gert.gif" id="gertImage" style="width:100%; size:auto" onclick="clickGoat()">
 <div id="display" style="color:blue;"></div>
 <div id="loading" style="color:rgb(150, 150, 224);"></div>
 </center>
