@@ -121,29 +121,89 @@ else if (clickcount=3){
     //document.getElementById("display").innerHTML=clickcount; //display click count
 }
 
-function clickGoat(){
-   
-    document.getElementById("gertImage").src="gert3.jpg";
-    document.body.style.backgroundImage = "url('goats2.gif')";
-    document.getElementById("bgstyle").style.opacity = "0.6";
 
-    var button = document. createElement("button");
-    button. innerHTML = "please stop";
-    document.getElementById("display").appendChild(button);
+let items = ['Goat', 'Giraffe', 'Sheep', 'Llama'];
 
-    button.addEventListener("click", function(){
-        document.getElementById("gertImage").src="gert.gif";
-        document.body.style.backgroundImage = "url('eye_bg.jpg')";    
-        button.style.visibility = "hidden";
-        document.getElementById("bgstyle").style.opacity = "1";
-    });
+function loadItems(){
+
+    //create array of items for sale?
+
+    var table = document.getElementById("itemsTable");
+
+ 
+    items.innerHTML = ['Goat', 'Giraffe', 'Sheep', 'Llama'];
+
+
+    for (var i = 0; i<items.length; i++){
+
+
+        var button = document.createElement("button");
+        button.style.width = "200px";
+        button.innerHTML = items[i];
+
+        button.onclick = function(e) {
+
+             // document.getElementById("display").innerHTML = "test";
+
+            };
+
+        var btn = "btn" +i;
+
+        //add items to table
+        table.innerHTML +=
+        '<tr id = "row' + i + '"><td><div id = "'+btn+'"></div></td></tr>';
+
+        document.getElementById(btn).appendChild(button);
+
+    }
+    
+    
+
+//class stuff--------------------------------
+
+const form = document.getElementById("something");
+const input = document.getElementById("value");
+const submitbtn = document.getElementById("submit");
+const results = document.getElementById("display");
+
+const submitHandler = function(event){
+
+    event.preventDefault();
+
+    for(let i = 1; i<input.value; i++){
+
+        const newLi = document.createElement('li')
+
+        if (i%15==0){
+            newLi.innerText = "fizzbuzz"
+            results.append(newLi)
+        }
+        else if (i%3 === 0){
+            newLi.innerText = "fizz"
+            results.append(newLi)
+        }
+        else if(i%5 === 0){
+            newLi.innerText = "buzz"
+            results.append(newLi)
+        }
+        else{
+            newLi.innerText = i
+            results.append(newLi)
+        }
+    }
 
 }
+
+submitbtn.onclick = submitHandler;
+
+}
+
 </script>
+
 <title>About</title>
 
 </head>
-<body>
+<body onload = loadItems()>
         <center>
                 <header>
                     <table>
@@ -161,12 +221,22 @@ function clickGoat(){
 <div id="outline">
 <div id="bgstyle">
 
-<center><h1>About</h1>  
+<center><h1>Buy Stuff</h1>  
     <img src="colour_img_1.gif" width="100%" size="auto"  onmouseover="this.src='colour_img_2.gif';" onmouseout="this.src='colour_img_1.gif';" onclick="changeColor()" style="width:30px;">
 <br><br>
-We are one person making cool html stuffs and things.<br>
-Please judge my code.<br><br>
-<img src="gert.gif" id="gertImage" style="width:100%; size:auto" onclick="clickGoat()">
+Add some items to your cart. Not sure if cart should be on same page or new one....<br><br>
+
+<!--create list of items to display in div.....? or table?-->
+<div id = items></div>
+<table id = itemsTable></table>
+
+---------------------------------------------------------
+<form id = "something">
+    <label for= "value">number</label>
+    <input type = "number" min="1" id = "value" value="1"/>
+    <input type = "submit" value = "submit" id="submit">
+</form>
+
 <div id="display" style="color:blue;"></div>
 <div id="loading" style="color:rgb(150, 150, 224);"></div>
 </center>
