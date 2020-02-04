@@ -1,0 +1,112 @@
+<!DOCTYPE html>>
+  <head>
+    <link rel="stylesheet" href="./Shopping_cart_style.css">
+<script>   
+function AddToCart(){
+  
+  //create item list
+  
+  var quantity = 0;
+  
+  var button = event.target.id; //get target button
+  alert(button);
+
+  document.getElementById("cart_section").innerHTML = button;
+  
+ if(button == "item1btn"){
+    quantity = document.getElementById("item1Quant").value;
+     
+  }
+  else if(button == "item2btn"){
+    quantity =document.getElementById("item2Quant").value;
+  }
+  else if(button == "item3btn"){
+    quantity =document.getElementById("item3Quant").value;
+  }
+  else if(button == "item4btn"){
+    quantity =document.getElementById("item4Quant").value;
+  }
+  
+//document.getElementById("itemNo").innerHTML = button + " x"+quantity;
+alert(button + " " + quantity);
+  
+
+  //add each item + quantity to list of items 
+  
+}
+    </script>
+
+  </head>
+  <body>
+   <header> 
+    <h1>Goat Shop</h1>
+    <br>
+     
+      <ul class ="nav">
+       <li><a href="#">Home</a></li>
+       <li><a href = "#">About</a></li>
+       <li><a href = "#">Shop</a></li>
+       <li><a href = "#">Gallery</a></li>
+        <li><a href = "#">Contact Us</a></li>
+        <li><a href = "#">Feedback</a></li>
+     </ul> 
+    <br>
+    Please hover over the goat to see the price. Select quantity and add to cart.
+    <br>
+    
+    </header>
+    <br>
+ 
+   
+    <!--list of items-->
+    <center>
+    <table >
+
+      <tr><td colspan = "4"><center>Black Goat</center></td></tr>
+      <tr><td colspan = "4"><img src = "black-goat1.jpg" onmouseover="this.src='black-goat2.jpg';" onmouseout="this.src='black-goat1.jpg';"></td></tr>
+        <tr><td>£10</td><td>Quantity: <input type="number" max = "10" min="1" value="1" id="item1Quant" value="0"></td><td><button type="button" name="item1btn" id="item1btn" onclick = "AddToCart()">Add to Cart</button></td></tr>
+      </tr>
+
+      <tr><td colspan = "4"><center>Brown Goat</center></tr>
+        <tr><td colspan = "4"><img src = "brown-goat1.jpg" onmouseover="this.src='brown-goat2.jpg';" onmouseout="this.src='brown-goat1.jpg';"></td></tr>
+        <tr><td>£8</td><td>Quantity: <input type="number" max = "10" min="1" value="1" id="item2Quant" value="0"></td><td><button type="button" name="item2btn" id="item2btn" onclick = "AddToCart()">Add to Cart</button></td></tr>
+      </tr>
+
+      <tr><td colspan = "4"><center>Dwarf Goat</center></tr>
+        <tr><td colspan = "4"><img src = "dwarf-goat1.jpg" onmouseover="this.src='dwarf-goat2.jpg';" onmouseout="this.src='dwarf-goat1.jpg';"></td></tr>
+        <tr><td>£4</td><td>Quantity: <input type="number" max = "10" min="1" value="1" id="item3Quant" value="0"></td><td><button type="button" name="item3btn" id="item3btn" onclick = "AddToCart()">Add to Cart</button></td></tr>
+      </tr>
+
+      <tr><td colspan = "4"><center>White Goat</center></tr>
+        <tr><td colspan = "4"><img src = "white-goat1.jpg" onmouseover="this.src='white-goat2.jpg';" onmouseout="this.src='white-goat1.jpg';"></td></tr>
+        <tr><td>£5</td><td>Quantity: <input type="number" max = "10" min="1" value="1" id="item4Quant" value="0"></td><td><button type="button" name="item4btn" id="item4btn" onclick = "AddToCart()">Add to Cart</button></td></tr>
+      </tr>
+
+      <tr><td colspan = "4"><center>Pair of Goats</center></tr>
+        <tr><td colspan = "4"><img src = "goat-pair1.jpg" onmouseover="this.src='goat-pair2.jpg';" onmouseout="this.src='goat-pair1.jpg';"></td></tr>
+        <tr><td>£12</td><td>Quantity: <input type="number" max = "10" min="1" value="1" id="item5Quant" value="0"></td><td><button type="button" name="item5btn" id="item5btn" onclick = "AddToCart()">Add to Cart</button></td></tr>
+      </tr>
+      
+    </table>
+    </center>
+    <br>
+    <br>
+    <center>
+        <div id = "cart">
+        <h2>My Cart</h2>
+
+        <div id = "cart_section">
+            There is currently nothing in your cart. 
+            <br><br>
+        </div>
+
+        </div>
+    </center>
+    <br>
+    <br>
+    
+  </body>
+  <footer>
+    This page is basic. Find out more about nothing through this <a href="#">link</a> and have a nice day.
+  </footer>
+</html>
